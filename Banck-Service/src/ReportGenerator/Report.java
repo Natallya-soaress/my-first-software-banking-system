@@ -6,5 +6,5 @@ import Users.PhysicalPerson;
 import Users.Person;
 
 public class Report {
-
+	
 }
