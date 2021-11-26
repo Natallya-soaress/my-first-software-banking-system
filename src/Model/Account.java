@@ -1,7 +1,6 @@
 package Model;
 
 import java.util.Date;
-
 public class Account {
 
 	private int number;
@@ -10,17 +9,20 @@ public class Account {
 	private double balance;
 	private double loanLimit;
 	private Date creationDate;
+	private Person person;
 	
 	public Account() {
 	}
 
-	public Account(int number, int accountPassword, int type, double balance, double loanLimit, Date creationDate) {
+	public Account(int number, int accountPassword, int type, double balance, double loanLimit, Date creationDate,
+			Person person) {
 		this.number = number;
 		this.accountPassword = accountPassword;
 		this.type = type;
 		this.balance = balance;
 		this.loanLimit = loanLimit;
 		this.creationDate = creationDate;
+		this.person = person;
 	}
 
 	public int getNumber() {
@@ -59,7 +61,7 @@ public class Account {
 		return loanLimit;
 	}
 
-	public void setLoanAmount(double loanLimit) {
+	public void setLoanLimit(double loanLimit) {
 		this.loanLimit = loanLimit;
 	}
 
@@ -71,6 +73,14 @@ public class Account {
 		this.creationDate = creationDate;
 	}
 	
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
 	public String checkBalance() {
 		return "Your balance is: " + getBalance();
 	}
@@ -97,4 +107,18 @@ public class Account {
 	
 	public void generateHistory() {
 	}
+	
+	public String toString() {
+		return "Name: " +
+				person.getName() +
+				"\nAccount number: " +
+				getNumber() +
+				"\nAccount type: Physical" +
+				"\nBalance: " +
+				getBalance() +
+				"\nLoan limit: " +
+				getLoanLimit();
+				
+	}
+	
 }
