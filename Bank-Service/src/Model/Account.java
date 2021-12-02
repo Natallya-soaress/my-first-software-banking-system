@@ -108,7 +108,9 @@ public class Account {
 	public void generateHistory() {
 	}
 	
-	
+	public void showBankingStatement() {
+		
+	}
 	public void showReportDay() {
 		
 	}

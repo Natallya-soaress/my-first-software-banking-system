@@ -14,12 +14,21 @@ public class Address {
 	}
 
 	public Address(String street, String complement, int number, String district, String city, String country) {
-		this.street = street;
-		this.complement = complement;
-		this.number = number;
-		this.district = district;
-		this.city = city;
-		this.country = country;
+		try {
+			
+			if(number < 0) {
+				throw new Exception("Não pode ser número negativo");
+			}
+			this.street = street;
+			this.complement = complement;
+			this.number = number;
+			this.district = district;
+			this.city = city;
+			this.country = country;
+		}catch(Exception e) {
+			System.out.println("Erro: "+ e.getMessage());
+		}
+
 	}
 
 	public String getStreet() {
@@ -43,7 +52,16 @@ public class Address {
 	}
 
 	public void setNumber(int number) {
-		this.number = number;
+		try {
+			
+			if(number < 0) {
+				throw new Exception("Não pode ser número negativo");
+			}
+			this.number = number;
+		}catch(Exception e) {
+			System.out.println("Erro: "+ e.getMessage());
+		}
+			
 	}
 
 	public String getDistrict() {

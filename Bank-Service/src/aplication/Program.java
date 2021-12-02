@@ -17,11 +17,13 @@ public class Program {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Scanner s = new Scanner(System.in);
 		
-		Address adress = new Address("A 02", "Qd 04, Lt 10", 22, "Jundiaí", "Anápolis", "Brasil");
+		Address address = new Address("A 02", "Qd 04, Lt 10", -215, "Jundiaí", "Anápolis", "Brasil");
+		System.out.println(address.getNumber());
+		System.out.println(address.getStreet());
 		
 		// Polimorfismo = duas variáveis do mesmo tipo, agindo de modos diferentes
-		Person person1 = new LegalPerson("Ana", sdf.parse("26/12/2000"), adress, "22.444.888/0002", 200.000, 202);
-		Person person2 = new PhysicalPerson("Bob", sdf.parse("14/12/2000"), adress, "042.864.202-66", true, "Teacher", 4.000);
+		Person person1 = new LegalPerson("Ana", sdf.parse("26/12/2000"), address, "22.444.888/0002", 200.000, 202);
+		Person person2 = new PhysicalPerson("Bob", sdf.parse("14/12/2000"), address, "042.864.202-66", true, "Teacher", 4.000);
 		
 		// Dado coletado do usuário para saber se a conta é de pessoa física ou jurídica 
 		//int type = 0;
@@ -37,7 +39,14 @@ public class Program {
 		System.out.println(account1.toString());
 		System.out.println(account2.toString());
 		
-		s.close();
+		
+		//Criando uma conta de teste -> pessoa física
+		PhysicalPerson camila = new PhysicalPerson("Camila",sdf.parse("08/03/2001"),address,"45639872511",false,"Estudante",400);
+		
+		
+		
+		
+		//s.close();
 	}
 
 }
