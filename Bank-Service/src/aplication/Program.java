@@ -56,9 +56,7 @@ public class Program {
 		System.out.println(account2.getBalance()+ "\n");
 		//account1.makeTranfer(account2,)
 		
-		
-		
-		
+		///////// TESTESTESASDASDSFASDASAD
 		
 		
 		
