@@ -12,10 +12,10 @@ public abstract class Person {
 		
 	}
 
-	public Person(String name, Date birthDate, Address adress) {
+	public Person(String name, Date birthDate, Address address) {
 		this.name = name;
 		this.birthDate = birthDate;
-		this.address = adress;
+		this.address = address;
 	}
 
 

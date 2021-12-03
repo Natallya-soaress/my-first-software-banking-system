@@ -14,6 +14,7 @@ public class Address {
 	}
 
 	public Address(String street, String complement, int number, String district, String city, String country) {
+		
 		try {
 			
 			if(number < 0) {
@@ -25,6 +26,7 @@ public class Address {
 			this.district = district;
 			this.city = city;
 			this.country = country;
+			
 		}catch(Exception e) {
 			System.out.println("Erro: "+ e.getMessage());
 		}

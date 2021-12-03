@@ -1,5 +1,7 @@
 package Model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 public class Account {
 
@@ -9,6 +11,7 @@ public class Account {
 	private double balance;
 	private double loanLimit;
 	private Date creationDate;
+	private Date tranferDate;
 	private Person person;
 	
 	public Account() {
@@ -73,6 +76,16 @@ public class Account {
 		this.creationDate = creationDate;
 	}
 	
+	public Date getTranferDate() {
+		return tranferDate;
+	}
+	
+
+	public void setTranferDate(Date tranferDate) {
+		this.tranferDate = tranferDate;
+	}
+		
+	
 	public Person getPerson() {
 		return person;
 	}
@@ -100,11 +113,33 @@ public class Account {
 		}
 	}
 	
+	
 	public void makeTransfer(Account destination, double value) {
+		
+			makeWithdraw(value);
+			destination.makeDeposit(value);
+		
+	}
+	
+	public void makeTransfer(Account destination, double value, int accountPassword ) {
+		if(value > 500) {
+			makeWithdraw(value);
+			destination.makeDeposit(value);
+		}
+	}
+	/*
+	public void makeTransfer(Account destination, double value, Date tranferDate) {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat actuallyDate = sdf(new SimpleDateFormat());
+		 
+		
 		makeWithdraw(value);
 		destination.makeDeposit(value);
 	}
+	*/
 	
+
+
 	public void generateHistory() {
 	}
 	
