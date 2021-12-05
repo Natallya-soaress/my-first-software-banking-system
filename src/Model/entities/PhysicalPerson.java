@@ -1,4 +1,4 @@
-package Model;
+package Model.entities;
 
 import java.util.Date;
 
@@ -13,8 +13,8 @@ public class PhysicalPerson extends Person {
 		super();
 	}
 
-	public PhysicalPerson(String name, Date birthDate, Adress adress, String cpf, boolean isEmployee, String profession,
-			double monthlyIncome) {
+	public PhysicalPerson(String name, Date birthDate, Adress adress, String cpf, boolean isEmployee,
+			String profession, double monthlyIncome) {
 		super(name, birthDate, adress);
 		this.cpf = cpf;
 		this.isEmployee = isEmployee;

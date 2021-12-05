@@ -1,4 +1,4 @@
-package Model;
+package Model.entities;
 
 import java.util.Date;
 
@@ -11,8 +11,9 @@ public class LegalPerson extends Person {
 	public LegalPerson() {
 		super();
 	}
-	
-	public LegalPerson(String name, Date birthDate, Adress adress, String cnpj, double billingAverage, int instituitionNumber) {
+
+	public LegalPerson(String name, Date birthDate, Adress adress, String cnpj, double billingAverage,
+			int instituitionNumber) {
 		super(name, birthDate, adress);
 		this.cnpj = cnpj;
 		this.billingAverage = billingAverage;

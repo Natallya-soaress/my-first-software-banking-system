@@ -1,4 +1,4 @@
-package Model;
+package Model.entities;
 
 import java.util.Date;
 
@@ -17,8 +17,6 @@ public abstract class Person {
 		this.birthDate = birthDate;
 		this.adress = adress;
 	}
-
-
 
 	public String getName() {
 		return name;
@@ -43,5 +41,6 @@ public abstract class Person {
 	public void setAdress(Adress adress) {
 		this.adress = adress;
 	}
+
 	
 }
