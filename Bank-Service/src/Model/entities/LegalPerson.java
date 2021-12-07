@@ -5,7 +5,7 @@ import java.util.Date;
 public class LegalPerson extends Person {
 
 	private String cnpj;
-	private double billingAverage;
+	private double billingAverage; //Média de faturamento
 	private int instituitionNumber;
 	
 	public LegalPerson() {
