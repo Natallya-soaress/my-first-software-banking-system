@@ -12,8 +12,8 @@ public class Account {
 	private int number;
 	private int accountPassword;
 	private int type;
-	private double balance;
-	private double loanLimit;
+	private double balance;  //Saldo
+	private double loanLimit;  //Limite para emprÃ©stimo
 	private Date creationDate;
 	private Date tranferDate;
 	private Person person;
@@ -56,7 +56,7 @@ public class Account {
 		this.type = type;
 	}
 
-	public double getBalance() {
+	public double getBalance() {	
 		return balance;
 	}
 
@@ -98,7 +98,7 @@ public class Account {
 		this.person = person;
 	}
 
-	public String checkBalance() {
+	public String checkBalance() {	//checar saldo
 		return "Your balance is: " + getBalance();
 	}
 	
@@ -110,7 +110,7 @@ public class Account {
 		}
 	}
 	
-	public void makeWithdraw(double value) throws InsuficientBalanceException {
+	public void makeWithdraw(double value) throws InsuficientBalanceException { //Fazer retirada
 		if(value > balance) {
 			throw new InsuficientBalanceException("Insucient balance!");
 		} else {
@@ -119,7 +119,7 @@ public class Account {
 	}
 	
 	
-	public void makeLoan(double value) throws NegativeDepositException, LoanOverTheLimitException {
+	public void makeLoan(double value) throws NegativeDepositException, LoanOverTheLimitException { //Fazer emprÃ©stimo
 		if(value > loanLimit) {
 			throw new LoanOverTheLimitException("Loan above the allowed limit!");
 		} else {
@@ -133,7 +133,7 @@ public class Account {
 		destination.makeDeposit(value);
 	}
 	
-	// Método que realiza transferências solicitando senha devido ao valor alto da transferência
+	// MÃ©todo que realiza transferÃªncias solicitando senha devido ao valor alto da transferÃªncia
 	public void makeTransfer(Account destination, double value, int accountPassword) throws InsuficientBalanceException, NegativeDepositException, IncorrectPasswordException {
 		if(accountPassword  != getAccountPassword()) {
 			throw new IncorrectPasswordException("Incorrect password!");
