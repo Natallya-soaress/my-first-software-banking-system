@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Movement {
 
-	private int source;
+	private int source;   //movimento de uma conta para a sua de destino
 	private int destination;
 	private double value;
 	private Date date;

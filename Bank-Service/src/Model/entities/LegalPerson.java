@@ -5,15 +5,15 @@ import java.util.Date;
 public class LegalPerson extends Person {
 
 	private String cnpj;
-	private double billingAverage;
+	private double billingAverage; //Média de faturamento
 	private int instituitionNumber;
 	
 	public LegalPerson() {
 		super();
 	}
 	
-	public LegalPerson(String name, Date birthDate, Address adress, String cnpj, double billingAverage, int instituitionNumber) {
-		super(name, birthDate, adress);
+	public LegalPerson(String name, Date birthDate, Address address, String cnpj, double billingAverage, int instituitionNumber) {
+		super(name, birthDate, address);
 		this.cnpj = cnpj;
 		this.billingAverage = billingAverage;
 		this.instituitionNumber = instituitionNumber;

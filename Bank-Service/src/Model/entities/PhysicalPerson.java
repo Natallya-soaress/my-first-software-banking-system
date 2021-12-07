@@ -7,7 +7,7 @@ public class PhysicalPerson extends Person {
 	private String cpf;
 	private boolean isEmployee;
 	private String profession;
-	private double monthlyIncome;
+	private double monthlyIncome;  //Renda mensal
 	
 	public PhysicalPerson() {
 		super();
