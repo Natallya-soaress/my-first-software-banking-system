@@ -2,33 +2,33 @@ package Model.entities;
 
 public class Login {
 
-	private int acessNumber;
-	private int loginPassword;
+	private String acessNumber;
+	private String loginPassword;
 	private boolean isInstitution;
 	
 	public Login() {
 		
 	}
 	
-	public Login(int acessNumber, int loginPassword, boolean isInstitution) {
+	public Login(String acessNumber, String loginPassword, boolean isInstitution) {
 		this.acessNumber = acessNumber;
 		this.loginPassword = loginPassword;
 		this.isInstitution = isInstitution;
 	}
 
-	public int getAcessNumber() {
+	public String getAcessNumber() {
 		return acessNumber;
 	}
 
-	public void setAcessNumber(int acessNumber) {
+	public void setAcessNumber(String acessNumber) {
 		this.acessNumber = acessNumber;
 	}
 
-	public int getLoginPassword() {
+	public String getLoginPassword() {
 		return loginPassword;
 	}
 
-	public void setLoginPassword(int loginPassword) {
+	public void setLoginPassword(String loginPassword) {
 		this.loginPassword = loginPassword;
 	}
 

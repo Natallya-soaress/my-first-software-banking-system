@@ -7,14 +7,14 @@ public class PhysicalPerson extends Person {
 	private String cpf;
 	private boolean isEmployee;
 	private String profession;
-	private double monthlyIncome;
+	private float monthlyIncome;
 	
 	public PhysicalPerson() {
 		super();
 	}
 
 	public PhysicalPerson(String name, Date birthDate, Adress adress, String cpf, boolean isEmployee,
-			String profession, double monthlyIncome) {
+			String profession, float monthlyIncome) {
 		super(name, birthDate, adress);
 		this.cpf = cpf;
 		this.isEmployee = isEmployee;
@@ -50,7 +50,7 @@ public class PhysicalPerson extends Person {
 		return monthlyIncome;
 	}
 
-	public void setMonthlyIncome(double monthlyIncome) {
+	public void setMonthlyIncome(float monthlyIncome) {
 		this.monthlyIncome = monthlyIncome;
 	}
 	

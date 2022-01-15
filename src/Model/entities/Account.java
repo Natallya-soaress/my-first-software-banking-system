@@ -9,11 +9,11 @@ import Model.exceptions.NegativeDepositException;
 
 public class Account {
 
-	private int number;
-	private int accountPassword;
-	private int type;
-	private double balance;
-	private double loanLimit;
+	private String number;
+	private String accountPassword;
+	private boolean type;
+	private float balance;
+	private float loanLimit;
 	private Date creationDate;
 	private Person person;
 	
@@ -21,7 +21,7 @@ public class Account {
 	public Account() {
 	}
 
-	public Account(int number, int accountPassword, int type, double balance, double loanLimit, Date creationDate,
+	public Account(String number, String accountPassword, boolean type, float balance, float loanLimit, Date creationDate,
 			Person person) {
 		this.number = number;
 		this.accountPassword = accountPassword;
@@ -32,27 +32,27 @@ public class Account {
 		this.person = person;
 	}
 
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 
-	public int getAccountPassword() {
+	public String getAccountPassword() {
 		return accountPassword;
 	}
 
-	public void setAccountPassword(int accountPassword) {
+	public void setAccountPassword(String accountPassword) {
 		this.accountPassword = accountPassword;
 	}
 
-	public int getType() {
+	public boolean getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(boolean type) {
 		this.type = type;
 	}
 
@@ -60,7 +60,7 @@ public class Account {
 		return balance;
 	}
 
-	public void setBalance(double balance) {
+	public void setBalance(float balance) {
 		this.balance = balance;
 	}
 
@@ -68,7 +68,7 @@ public class Account {
 		return loanLimit;
 	}
 
-	public void setLoanLimit(double loanLimit) {
+	public void setLoanLimit(float loanLimit) {
 		this.loanLimit = loanLimit;
 	}
 
@@ -124,7 +124,7 @@ public class Account {
 	}
 	
 	// Método que realiza transferências solicitando senha devido ao valor alto da transferência
-	public void makeTransfer(Account destination, double value, int accountPassword) throws InsuficientBalanceException, NegativeDepositException, IncorrectPasswordException {
+	public void makeTransfer(Account destination, double value, String accountPassword) throws InsuficientBalanceException, NegativeDepositException, IncorrectPasswordException {
 		if(accountPassword  != getAccountPassword()) {
 			throw new IncorrectPasswordException("Incorrect password!");
 		} else {

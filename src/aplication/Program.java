@@ -31,7 +31,8 @@ public class Program {
 		
 		Account account1 = null;
 		Account account2 = null;
-				
+		
+		/*
 		if(type == 0) {
 			// Conta de pessoa jurídica
 			account1 = new Account(2002, 6442, 0, 600.00, 12.500, sdf.parse("26/11/2000"), person1);
@@ -39,7 +40,7 @@ public class Program {
 		} else if (type == 1) {
 			// Conta de pessoa física
 			account2 = new Account(2004, 8824, 0, 200.00, 2.500, sdf.parse("26/11/2000"), person2);
-		}
+		} */
 		
 		// Mostra os dados da duas contas criadas
 		/*if(account1 != null) 

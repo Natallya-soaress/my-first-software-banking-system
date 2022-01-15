@@ -4,7 +4,7 @@ public class Adress {
 	
 	private String street;
 	private String complement;
-	private int number;
+	private String number;
 	private String district;
 	private String city;
 	private String country;
@@ -13,7 +13,7 @@ public class Adress {
 		
 	}
 
-	public Adress(String street, String complement, int number, String district, String city, String country) {
+	public Adress(String street, String complement, String number, String district, String city, String country) {
 		this.street = street;
 		this.complement = complement;
 		this.number = number;
@@ -38,11 +38,11 @@ public class Adress {
 		this.complement = complement;
 	}
 
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 
