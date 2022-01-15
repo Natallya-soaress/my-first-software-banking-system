@@ -1,5 +1,7 @@
 package Model.entities;
 
+import Model.exceptions.IncorrectPasswordException;
+
 public class Login {
 
 	private String acessNumber;
@@ -40,11 +42,11 @@ public class Login {
 		this.isInstitution = isInstitution;
 	}
 	
-	public void makeLogin() {
-		
-	}
-	
-	public void createAccount() {
-		
+	public void makeLogin(String acessNumber, String loginPassword) throws IncorrectPasswordException {
+		if(acessNumber == getAcessNumber() && loginPassword == getLoginPassword()) {
+			// Abrir home
+		} else {
+			throw new IncorrectPasswordException("Incorrect password or username!");
+		}
 	}
 }
