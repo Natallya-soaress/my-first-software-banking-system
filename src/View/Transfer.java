@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Transfer extends JFrame {
 
@@ -100,6 +102,11 @@ public class Transfer extends JFrame {
 		Transfer.add(fieldPasswordTransfer);
 		
 		JButton buttonConfirmTransfer = new JButton("Confirm");
+		buttonConfirmTransfer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Adicionar um evento ao votão.
+			}
+		});
 		buttonConfirmTransfer.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		buttonConfirmTransfer.setBounds(249, 206, 89, 23);
 		Transfer.add(buttonConfirmTransfer);

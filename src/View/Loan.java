@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Loan extends JFrame {
 
@@ -89,6 +91,11 @@ public class Loan extends JFrame {
 		Loan.add(fieldPasswordLoan);
 		
 		JButton buttonConfirmLoan = new JButton("Confirm");
+		buttonConfirmLoan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Adicionar um evento ao botão.
+			}
+		});
 		buttonConfirmLoan.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		buttonConfirmLoan.setBounds(181, 213, 89, 23);
 		Loan.add(buttonConfirmLoan);

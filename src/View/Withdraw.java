@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Withdraw extends JFrame {
 
@@ -89,6 +91,11 @@ public class Withdraw extends JFrame {
 		Withdraw.add(fieldPasswordWitdraw);
 		
 		JButton buttonConfirmWitdraw = new JButton("Confirm");
+		buttonConfirmWitdraw.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Adicionar um evento ao botão
+			}
+		});
 		buttonConfirmWitdraw.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		buttonConfirmWitdraw.setBounds(174, 207, 89, 23);
 		Withdraw.add(buttonConfirmWitdraw);

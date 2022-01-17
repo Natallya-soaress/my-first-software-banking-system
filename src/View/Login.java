@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
 
@@ -69,6 +71,11 @@ public class Login extends JFrame {
 		login.add(textAccountPasword);
 		
 		JButton buttonLogin2 = new JButton("Login");
+		buttonLogin2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Adicionar um evento ao botão.
+			}
+		});
 		buttonLogin2.setBackground(new Color(255, 0, 255));
 		buttonLogin2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		buttonLogin2.setBounds(190, 199, 89, 23);

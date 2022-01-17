@@ -54,6 +54,7 @@ public class Inicio extends JFrame {
 		buttonLogin1.setBounds(132, 177, 158, 23);
 		buttonLogin1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Adicionar um evento ao botão.
 			}
 		});
 		inicio.setLayout(null);
