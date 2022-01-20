@@ -53,24 +53,53 @@ public class Home extends JFrame {
 	 */
 	public Home() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 511, 324);
 		home = new JPanel();
 		home.setBackground(Color.PINK);
 		home.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(home);
 		home.setLayout(null);
 		
-		JPopupMenu menuHome = new JPopupMenu();
-		menuHome.setAlignmentX(Component.CENTER_ALIGNMENT);
-		menuHome.setBounds(10, 11, 424, 16);
-		menuHome.setBackground(Color.BLACK);
-		menuHome.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		addPopup(home, menuHome);
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 426, 22);
+		home.add(menuBar);
+		
+		JMenu mnSettings = new JMenu("Settings");
+		menuBar.add(mnSettings);
+		
+		JMenuItem menuSettings = new JMenuItem("Settings");
+		mnSettings.add(menuSettings);
+		menuSettings.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/gear.png")));
+		menuSettings.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		JMenu mnExit = new JMenu("Exit");
+		menuBar.add(mnExit);
+		
+		JMenuItem menuExit = new JMenuItem("Exit");
+		mnExit.add(menuExit);
+		menuExit.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/exit.png")));
+		menuExit.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		JMenu mnAccountStatement = new JMenu("AccontStatement");
+		menuBar.add(mnAccountStatement);
+		
+		JMenuItem menuAccountStatement = new JMenuItem("Account statement");
+		mnAccountStatement.add(menuAccountStatement);
+		menuAccountStatement.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/invoice.png")));
+		menuAccountStatement.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		JMenu mnMenuService = new JMenu("MenuService");
+		menuBar.add(mnMenuService);
+		
+		JMenuItem menuService = new JMenuItem("Service");
+		mnMenuService.add(menuService);
+		menuService.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/international-call.png")));
+		menuService.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JMenu menuMakeNewTransaction = new JMenu("Make new transaction");
+		menuBar.add(menuMakeNewTransaction);
 		menuMakeNewTransaction.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/online-banking.png")));
 		menuMakeNewTransaction.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		menuHome.add(menuMakeNewTransaction);
 		
 		JMenuItem menDeposit = new JMenuItem("Deposit");
 		menDeposit.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -88,29 +117,9 @@ public class Home extends JFrame {
 		manTransfer.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		menuMakeNewTransaction.add(manTransfer);
 		
-		JMenuItem menuService = new JMenuItem("Service");
-		menuService.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/international-call.png")));
-		menuService.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		menuHome.add(menuService);
-		
-		JMenuItem menuAccountStatement = new JMenuItem("Account statement");
-		menuAccountStatement.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/invoice.png")));
-		menuAccountStatement.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		menuHome.add(menuAccountStatement);
-		
-		JMenuItem menuSettings = new JMenuItem("Settings");
-		menuSettings.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/gear.png")));
-		menuSettings.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		menuHome.add(menuSettings);
-		
-		JMenuItem menuExit = new JMenuItem("Exit");
-		menuExit.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/exit.png")));
-		menuExit.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		menuHome.add(menuExit);
-		
 		JLabel titleWelcome = new JLabel("  Welcome to My First Bank!");
 		titleWelcome.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/pair-of-bills.png")));
-		titleWelcome.setBounds(218, 11, 216, 31);
+		titleWelcome.setBounds(99, 32, 216, 31);
 		titleWelcome.setForeground(Color.BLACK);
 		titleWelcome.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		home.add(titleWelcome);
