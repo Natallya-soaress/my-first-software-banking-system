@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Deposit extends JFrame {
 
@@ -85,6 +87,10 @@ public class Deposit extends JFrame {
 		deposit.add(titleDeposit);
 		
 		JButton buttonConfirm = new JButton("Confirm");
+		buttonConfirm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		buttonConfirm.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		buttonConfirm.setBounds(169, 209, 89, 23);
 		deposit.add(buttonConfirm);

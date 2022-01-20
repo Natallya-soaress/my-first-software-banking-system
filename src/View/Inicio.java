@@ -53,7 +53,10 @@ public class Inicio extends JFrame {
 		buttonLogin1.setForeground(Color.BLACK);
 		buttonLogin1.setBounds(132, 177, 158, 23);
 		buttonLogin1.addActionListener(new ActionListener() {
+			//Quando clicar no botão de login, aparecerá a tela de login
 			public void actionPerformed(ActionEvent e) {
+				new Login().setVisible(true);
+				
 			}
 		});
 		inicio.setLayout(null);
