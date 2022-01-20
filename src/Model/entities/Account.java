@@ -18,7 +18,9 @@ public class Account {
 	private Person person;
 	
 	
-	public Account() {
+	public Account(String number,String accountPassword) {
+		this.number = number;
+		this.accountPassword = accountPassword;
 	}
 
 	public Account(String number, String accountPassword, boolean type, float balance, float loanLimit, Date creationDate,
