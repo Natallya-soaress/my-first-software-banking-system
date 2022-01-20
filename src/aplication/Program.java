@@ -1,5 +1,7 @@
 package aplication;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -11,6 +13,7 @@ import Model.entities.Person;
 import Model.entities.PhysicalPerson;
 import Model.exceptions.InsuficientBalanceException;
 import Model.exceptions.NegativeDepositException;
+import db.Conexao;
 
 public class Program {
 
@@ -79,6 +82,12 @@ public class Program {
 		}
 		 
 			
+		try {
+			Connection con = new Conexao().getConnection();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
 		s.close();
 	}
 

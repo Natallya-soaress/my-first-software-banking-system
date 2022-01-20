@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.LoginController;
+
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -14,6 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
@@ -22,6 +26,7 @@ public class Login extends JFrame {
 	private JTextField fieldAccountNumber;
 	private JPasswordField fieldAccountPasword;
 	private JLabel logoLogin;
+	private final LoginController controller;
 
 	/**
 	 * Launch the application.
@@ -43,12 +48,16 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		
+		this.controller = null;
+		LoginController controller = new LoginController(this); //passo a própria view
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		login = new JPanel();
 		login.setBackground(Color.PINK);
 		login.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(login);
+		setResizable(false); //Não permite aumentar a tela
 		login.setLayout(null);
 		
 		fieldAccountNumber = new JTextField();
@@ -74,8 +83,13 @@ public class Login extends JFrame {
 		buttonLogin2.addActionListener(new ActionListener() {
 			//Se clicar no botão de login, aparecerá a tela home
 			public void actionPerformed(ActionEvent e) {
-				Home home = new Home();
-				home.setVisible(true);
+					try {
+						controller.autenticar();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 				dispose();
 			}
 		});
@@ -88,5 +102,21 @@ public class Login extends JFrame {
 		logoLogin.setIcon(new ImageIcon(Login.class.getResource("/ViewImages/pair-of-bills.png")));
 		logoLogin.setBounds(173, 24, 62, 45);
 		login.add(logoLogin);
+	}
+	
+	public JPasswordField getfieldAccountPasword() {
+		return fieldAccountPasword;
+	}
+
+	public void setfieldAccountPasword(JPasswordField senha) {
+		this.fieldAccountNumber = senha;
+	}
+
+	public JTextField getfieldAccountNumber() {
+		return fieldAccountNumber;
+	}
+
+	public void setfieldAccountNumber(JTextField usuario) {
+		this.fieldAccountNumber = usuario;
 	}
 }
