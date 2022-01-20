@@ -56,6 +56,7 @@ public class Inicio extends JFrame {
 			//Quando clicar no botão de login, aparecerá a tela de login
 			public void actionPerformed(ActionEvent e) {
 				new Login().setVisible(true);
+				dispose(); //Remove a tela anterior
 				
 			}
 		});

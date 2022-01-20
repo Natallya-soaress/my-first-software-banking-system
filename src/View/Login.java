@@ -76,6 +76,7 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Home home = new Home();
 				home.setVisible(true);
+				dispose();
 			}
 		});
 		buttonLogin2.setBackground(new Color(255, 0, 255));
