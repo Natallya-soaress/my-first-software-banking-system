@@ -1,6 +1,8 @@
-package Model.entities;
+package Model.factory;
 
 import java.util.Date;
+
+import Model.entities.Adress;
 
 public class LegalPerson extends Person {
 
@@ -12,9 +14,9 @@ public class LegalPerson extends Person {
 		super();
 	}
 
-	public LegalPerson(String name, Date birthDate, Adress adress, String cnpj, float billingAverage,
+	public LegalPerson(String controlFlag, String name, Date birthDate, Adress adress, String cnpj, float billingAverage,
 			String instituitionNumber) {
-		super(name, birthDate, adress);
+		super(controlFlag, name, birthDate, adress);
 		this.cnpj = cnpj;
 		this.billingAverage = billingAverage;
 		this.instituitionNumber = instituitionNumber;

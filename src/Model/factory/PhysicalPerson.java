@@ -1,6 +1,8 @@
-package Model.entities;
+package Model.factory;
 
 import java.util.Date;
+
+import Model.entities.Adress;
 
 public class PhysicalPerson extends Person {
 	
@@ -13,9 +15,9 @@ public class PhysicalPerson extends Person {
 		super();
 	}
 
-	public PhysicalPerson(String name, Date birthDate, Adress adress, String cpf, boolean isEmployee,
+	public PhysicalPerson(String controlFlag, String name, Date birthDate, Adress adress, String cpf, boolean isEmployee,
 			String profession, float monthlyIncome) {
-		super(name, birthDate, adress);
+		super(controlFlag, name, birthDate, adress);
 		this.cpf = cpf;
 		this.isEmployee = isEmployee;
 		this.profession = profession;

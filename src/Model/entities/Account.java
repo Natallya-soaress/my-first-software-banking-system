@@ -6,6 +6,7 @@ import Model.exceptions.IncorrectPasswordException;
 import Model.exceptions.InsuficientBalanceException;
 import Model.exceptions.LoanOverTheLimitException;
 import Model.exceptions.NegativeDepositException;
+import Model.factory.Person;
 
 public class Account {
 

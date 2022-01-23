@@ -1,19 +1,14 @@
 package aplication;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-import Model.entities.Account;
 import Model.entities.Adress;
-import Model.entities.LegalPerson;
-import Model.entities.Person;
-import Model.entities.PhysicalPerson;
 import Model.exceptions.InsuficientBalanceException;
 import Model.exceptions.NegativeDepositException;
-import db.Conexao;
+import Model.factory.LegalPerson;
+import Model.factory.PersonFactory;
 
 public class Program {
 
@@ -22,16 +17,20 @@ public class Program {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Scanner s = new Scanner(System.in);
 		
-		//Adress adress = new Adress("A 02", "Qd 04, Lt 10", 22, "Jundiaí", "Anápolis", "Brasil");
+		Adress adress = new Adress("A 02", "Qd 04, Lt 10", "22", "Jundiaí", "Anápolis", "Brasil");
 		
 		// Polimorfismo 
 		//Person person1 = new LegalPerson("Ana", sdf.parse("26/12/2000"), adress, "22.444.888/0002", 200.000, 202);
 		//Person person2 = new PhysicalPerson("Bob", sdf.parse("14/12/2000"), adress, "042.864.202-66", true, "Teacher", 4.000);
 		
-		// Dado coletado do usuário para saber se a conta é de pessoa física ou jurídica 
-		int type = 0;
+		
+		// Teste Fábrica de instâncias
+		PersonFactory personFactory = new PersonFactory();
+		LegalPerson teste = personFactory.getLegalPerson("L", "Nat", sdf.parse("26/12/2000"), adress, "222.222.248", 600, "24" );
+		System.out.println(teste.getCnpj()); 
 		
 		
+		/*
 		Account account1 = null;
 		Account account2 = null;
 		
@@ -49,7 +48,7 @@ public class Program {
 		/*if(account1 != null) 
 			System.out.println(account1.toString());
 		if(account2 != null) 
-			System.out.println(account2.toString()); */
+			System.out.println(account2.toString()); 
 		
 		// Teste do método que realiza transferência (não necessita de senha) 
 		System.out.println("Saldo conta 1" + account1.checkBalance());
@@ -88,6 +87,9 @@ public class Program {
 			
 			e.printStackTrace();
 		}
+		
+		*/
+		
 		s.close();
 	}
 
