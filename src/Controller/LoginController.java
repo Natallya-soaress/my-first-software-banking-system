@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import javax.swing.JTextField;
 
-import Model.entities.Account;
+import Model.factory.Account;
 import View.Home;
 import View.Login;
 import db.AccountDB;

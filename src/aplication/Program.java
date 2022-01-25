@@ -7,6 +7,8 @@ import java.util.Scanner;
 import Model.entities.Adress;
 import Model.exceptions.InsuficientBalanceException;
 import Model.exceptions.NegativeDepositException;
+import Model.factory.AccountFactory;
+import Model.factory.LegalAccount;
 import Model.factory.LegalPerson;
 import Model.factory.PersonFactory;
 
@@ -19,16 +21,15 @@ public class Program {
 		
 		Adress adress = new Adress("A 02", "Qd 04, Lt 10", "22", "Jundiaí", "Anápolis", "Brasil");
 		
-		// Polimorfismo 
-		//Person person1 = new LegalPerson("Ana", sdf.parse("26/12/2000"), adress, "22.444.888/0002", 200.000, 202);
-		//Person person2 = new PhysicalPerson("Bob", sdf.parse("14/12/2000"), adress, "042.864.202-66", true, "Teacher", 4.000);
-		
-		
-		// Teste Fábrica de instâncias
+		// Teste Fábrica de pessoas
 		PersonFactory personFactory = new PersonFactory();
 		LegalPerson teste = personFactory.getLegalPerson("L", "Nat", sdf.parse("26/12/2000"), adress, "222.222.248", 600, "24" );
 		System.out.println(teste.getCnpj()); 
 		
+		// Teste Fábrica de contas
+		AccountFactory accountFactory = new AccountFactory();
+		LegalAccount testeAcc = accountFactory.getLegalAccount("2244", "0000", 600, 2000, sdf.parse("26/12/2000"), teste );
+		System.out.println(testeAcc.getBalance());
 		
 		/*
 		Account account1 = null;

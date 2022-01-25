@@ -1,4 +1,4 @@
-package Model.entities;
+package Model.factory;
 
 import java.util.Date;
 
@@ -6,7 +6,6 @@ import Model.exceptions.IncorrectPasswordException;
 import Model.exceptions.InsuficientBalanceException;
 import Model.exceptions.LoanOverTheLimitException;
 import Model.exceptions.NegativeDepositException;
-import Model.factory.Person;
 
 public class Account {
 
@@ -19,7 +18,7 @@ public class Account {
 	private Person person;
 	
 	
-	public Account(String number,String accountPassword) {
+	public Account(String number, String accountPassword) {
 		this.number = number;
 		this.accountPassword = accountPassword;
 	}

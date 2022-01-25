@@ -2,7 +2,7 @@ package db;
 
 import java.sql.Connection;
 
-import Model.entities.Account;
+import Model.factory.Account;
 
 public class AccountDB {
 	private final Connection connection;
