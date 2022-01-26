@@ -125,16 +125,6 @@ public class Account {
 		destination.makeDeposit(value);
 	}
 	
-	// Método que realiza transferências solicitando senha devido ao valor alto da transferência
-	public void makeTransfer(Account destination, double value, String accountPassword) throws InsuficientBalanceException, NegativeDepositException, IncorrectPasswordException {
-		if(accountPassword  != getAccountPassword()) {
-			throw new IncorrectPasswordException("Incorrect password!");
-		} else {
-			makeWithdraw(value);
-			destination.makeDeposit(value);
-		}
-	}
-	
 	public void generateHistory() {
 	}
 	

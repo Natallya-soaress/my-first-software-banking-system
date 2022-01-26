@@ -2,7 +2,12 @@ package Model.factory;
 
 import java.util.Date;
 
-public class PhysicalAccount{
+import Model.exceptions.InsuficientBalanceException;
+import Model.exceptions.LoanOverTheLimitException;
+import Model.exceptions.NegativeDepositException;
+import Model.interfaces.AccountInterface;
+
+public class PhysicalAccount implements AccountInterface{
 
 	private String number;
 	private String accountPassword;
@@ -67,6 +72,60 @@ public class PhysicalAccount{
 
 	public void setPerson(PhysicalPerson person) {
 		this.person = person;
+	}
+	
+	@Override
+	public void makeDeposit(String accountNumber, String accountPassword, double value) throws NegativeDepositException {
+		if (value <= 0) {
+			throw new NegativeDepositException("It is not possible to deposit negative amounts!");
+		}else {
+		balance += value;
+		}
+	}
+	
+	@Override
+	public void makeDeposit(double value) throws NegativeDepositException {
+		if (value <= 0) {
+			throw new NegativeDepositException("It is not possible to deposit negative amounts!");
+		}else {
+		balance += value;
+		}
+	}
+
+	public void makeWithdraw(double value) throws InsuficientBalanceException {
+		if(value > balance) {
+			throw new InsuficientBalanceException("Insucient balance!");
+		} else {
+			balance -= value;
+		}
+	
+	@Override
+	public void makeWithdraw(String accountNumber, String accountPassword, double value) throws InsuficientBalanceException {
+		if(value > balance) {
+			throw new InsuficientBalanceException("Insucient balance!");
+		} else {
+			balance -= value;
+		}
+	}
+
+	@Override
+	public void makeLoan(String accountNumber, String accountPassword, double value) throws LoanOverTheLimitException, NegativeDepositException {
+		if(value > loanLimit) {
+			throw new LoanOverTheLimitException("Loan above the allowed limit!");
+		} else {
+			makeDeposit(value);
+		}
+		
+	}
+
+	@Override
+	public void makeTransfer(String accountNumber, String accountPassword, LegalAccount destination, double value) throws InsuficientBalanceException, NegativeDepositException {
+	}
+
+	@Override
+	public void makeTransfer(String accountNumber, String accountPassword, PhysicalAccount destination, double value) throws InsuficientBalanceException, NegativeDepositException {
+		makeWithdraw(value);
+		destination.makeDeposit(value);
 	}
 	
 }

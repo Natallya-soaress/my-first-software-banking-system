@@ -73,7 +73,7 @@ public class Home extends JFrame {
 		HomeController controller = new HomeController(this);
 		LoginController controller2 = new LoginController();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 511, 324);
+		setBounds(100, 100, 445, 300);
 		home = new JPanel();
 		home.setBackground(Color.PINK);
 		home.setBorder(new EmptyBorder(5, 5, 5, 5));

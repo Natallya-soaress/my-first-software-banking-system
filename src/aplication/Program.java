@@ -32,31 +32,6 @@ public class Program {
 		System.out.println(testeAcc.getBalance());
 		
 		/*
-		Account account1 = null;
-		Account account2 = null;
-		
-		/*
-		if(type == 0) {
-			// Conta de pessoa jurídica
-			account1 = new Account(2002, 6442, 0, 600.00, 12.500, sdf.parse("26/11/2000"), person1);
-			account2 = new Account(2004, 8824, 0, 200.00, 2.500, sdf.parse("26/11/2000"), person2);
-		} else if (type == 1) {
-			// Conta de pessoa física
-			account2 = new Account(2004, 8824, 0, 200.00, 2.500, sdf.parse("26/11/2000"), person2);
-		} */
-		
-		// Mostra os dados da duas contas criadas
-		/*if(account1 != null) 
-			System.out.println(account1.toString());
-		if(account2 != null) 
-			System.out.println(account2.toString()); 
-		
-		// Teste do método que realiza transferência (não necessita de senha) 
-		System.out.println("Saldo conta 1" + account1.checkBalance());
-		System.out.println("Saldo conta 2" + account2.checkBalance());
-		account1.makeTransfer(account2, 200.00);
-		System.out.println("Saldo conta 1" + account1.checkBalance());
-		System.out.println("Saldo conta 2" + account2.checkBalance());
 		
 		// Teste da exceção que trata saques maiores que o saldo
 		try {
