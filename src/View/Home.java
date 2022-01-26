@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.HomeController;
+import Controller.LoginController;
+
 import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -23,35 +27,51 @@ import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+
 import javax.swing.JMenuItem;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JTree;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Home extends JFrame {
 
 	private JPanel home;
+	//private final HomeController controller;
+	private JLabel accountNumberUser;
+	private JLabel balanceUser;
+	private String numberAccount;
+	
 
+
+
+	public String getNumberAccount() {
+		return numberAccount;
+	}
+	public void setNumberAccount(String numberAccount) {
+		
+		this.numberAccount = numberAccount;
+		//System.out.println(this.getNumberAccount());
+	}
 	/**
 	 * Launch the application.
+	 * @throws SQLException 
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Home frame = new Home();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public Home() throws SQLException {
+		HomeTela();
+		
 	}
-
 	/**
 	 * Create the frame.
+	 * @throws SQLException 
 	 */
-	public Home() {
+	public void HomeTela() throws SQLException {
+		//this.controller = null;
+		HomeController controller = new HomeController(this);
+		LoginController controller2 = new LoginController();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 511, 324);
 		home = new JPanel();
@@ -102,6 +122,13 @@ public class Home extends JFrame {
 		menuMakeNewTransaction.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JMenuItem menDeposit = new JMenuItem("Deposit");
+		menDeposit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Deposit deposit = new Deposit();
+				deposit.setVisible(true);
+			}
+		});
 		menDeposit.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		menuMakeNewTransaction.add(menDeposit);
 		
@@ -124,20 +151,37 @@ public class Home extends JFrame {
 		titleWelcome.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		home.add(titleWelcome);
 		
-		JLabel nameUser = new JLabel("Name");
+		JLabel nameUser = new JLabel("");
 		nameUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		nameUser.setBounds(185, 85, 124, 14);
 		home.add(nameUser);
 		
-		JLabel accountNumberUser = new JLabel("Account number");
+		JLabel accountNumberUser = new JLabel(this.getNumberAccount());
 		accountNumberUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		accountNumberUser.setBounds(157, 108, 132, 14);
 		home.add(accountNumberUser);
 		
-		JLabel balanceUser = new JLabel("Balance");
+		JLabel balanceUser = new JLabel(""+controller.showBalance(this.getNumberAccount()));
 		balanceUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		balanceUser.setBounds(185, 133, 46, 14);
 		home.add(balanceUser);
+		
+		JLabel NameCamp = new JLabel("");
+		NameCamp.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		NameCamp.setBackground(Color.WHITE);
+		NameCamp.setForeground(Color.BLACK);
+		NameCamp.setBounds(296, 87, 97, 13);
+		home.add(NameCamp);
+		
+		JLabel NumberAccCamp = new JLabel("");
+		NumberAccCamp.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		NumberAccCamp.setBounds(306, 110, 97, 13);
+		home.add(NumberAccCamp);
+		
+		JLabel BalanceCamp = new JLabel("");
+		BalanceCamp.setBounds(316, 135, 45, 13);
+		home.add(BalanceCamp);
+		
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
@@ -157,3 +201,8 @@ public class Home extends JFrame {
 		});
 	}
 }
+
+
+
+
+

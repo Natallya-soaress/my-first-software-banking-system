@@ -3,6 +3,7 @@ package Controller;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Model.factory.Account;
@@ -13,9 +14,13 @@ import db.Conexao;
 
 public class LoginController {
 	private Login view;
+	private Home home;
 	
 	public LoginController(Login view) {
 		this.view = view;
+	}
+	public LoginController() {
+		
 	}
 
 	public void autenticar() throws Exception {
@@ -29,14 +34,26 @@ public class LoginController {
 		Connection conexao = new Conexao().getConnection();
 		AccountDB novaCon = new AccountDB(conexao);
 		
-		novaCon.existeUser(user);
-		//Connection conexao = new Conexao().getConnection();
+		//novaCon.existeUser(user);
+
+        //boolean exist = novaCon.existeUser(user);
+       
+        if (novaCon.existeUser(user)) {
+        	home = new Home();
+        	home.setNumberAccount(numberAccount);
+        	home.HomeTela();
+        	home.setVisible(true);
+        	view.setVisible(false);
+        	
+        	
+        }else {
+            JOptionPane.showMessageDialog(view,"Number or Password invalid");
+        }
 		
-		Home home = new Home();
-		home.setVisible(true);
-		
-		
+		conexao.close();
 	}
+	
+
 
 	
 }

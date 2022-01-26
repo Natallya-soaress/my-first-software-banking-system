@@ -52,7 +52,7 @@ public class Login extends JFrame {
 		this.controller = null;
 		LoginController controller = new LoginController(this); //passo a própria view
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 330);
+		setBounds(100, 100, 450, 300);
 		login = new JPanel();
 		login.setBackground(Color.PINK);
 		login.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -84,13 +84,13 @@ public class Login extends JFrame {
 			//Se clicar no botão de login, aparecerá a tela home
 			public void actionPerformed(ActionEvent e) {
 					try {
-						controller.autenticar();
+						controller.autenticar();		
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 
-				dispose();
+				//dispose();
 			}
 		});
 		buttonLogin2.setBackground(new Color(255, 0, 255));
