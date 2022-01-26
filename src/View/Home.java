@@ -45,16 +45,12 @@ public class Home extends JFrame {
 	private JLabel balanceUser;
 	private String numberAccount;
 	
-
-
-
+	
 	public String getNumberAccount() {
 		return numberAccount;
 	}
 	public void setNumberAccount(String numberAccount) {
-		
 		this.numberAccount = numberAccount;
-		//System.out.println(this.getNumberAccount());
 	}
 	/**
 	 * Launch the application.
@@ -69,7 +65,7 @@ public class Home extends JFrame {
 	 * @throws SQLException 
 	 */
 	public void HomeTela() throws SQLException {
-		//this.controller = null;
+		
 		HomeController controller = new HomeController(this);
 		LoginController controller2 = new LoginController();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -139,8 +135,10 @@ public class Home extends JFrame {
 		menDeposit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				dispose();
 				Deposit deposit = new Deposit();
 				deposit.setVisible(true);
+				
 			}
 		});
 		menDeposit.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -150,6 +148,7 @@ public class Home extends JFrame {
 		menWithdraw.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				dispose();
 				Withdraw withdraw = new Withdraw();
 				withdraw.setVisible(true);
 			}
@@ -172,6 +171,7 @@ public class Home extends JFrame {
 		manTransfer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				dispose();
 				Transfer transfer = new Transfer();
 				transfer.setVisible(true);
 			}
@@ -181,39 +181,29 @@ public class Home extends JFrame {
 		
 		JLabel titleWelcome = new JLabel("  Welcome to My First Bank!");
 		titleWelcome.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/pair-of-bills.png")));
-		titleWelcome.setBounds(99, 32, 216, 31);
+		titleWelcome.setBounds(120, 32, 216, 31);
 		titleWelcome.setForeground(Color.BLACK);
 		titleWelcome.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		home.add(titleWelcome);
 		
-		JLabel nameUser = new JLabel("");
-		nameUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		nameUser.setBounds(185, 85, 124, 14);
-		home.add(nameUser);
 		
-		JLabel accountNumberUser = new JLabel(this.getNumberAccount());
+		JLabel accountNumberUser = new JLabel("Account Number");
 		accountNumberUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		accountNumberUser.setBounds(157, 108, 132, 14);
 		home.add(accountNumberUser);
 		
-		JLabel balanceUser = new JLabel(""+controller.showBalance(this.getNumberAccount()));
+		JLabel balanceUser = new JLabel("Balance");
 		balanceUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		balanceUser.setBounds(185, 133, 46, 14);
 		home.add(balanceUser);
 		
-		JLabel NameCamp = new JLabel("");
-		NameCamp.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		NameCamp.setBackground(Color.WHITE);
-		NameCamp.setForeground(Color.BLACK);
-		NameCamp.setBounds(296, 87, 97, 13);
-		home.add(NameCamp);
 		
-		JLabel NumberAccCamp = new JLabel("");
+		JLabel NumberAccCamp = new JLabel(this.getNumberAccount());
 		NumberAccCamp.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		NumberAccCamp.setBounds(306, 110, 97, 13);
+		NumberAccCamp.setBounds(316, 110, 97, 13);
 		home.add(NumberAccCamp);
 		
-		JLabel BalanceCamp = new JLabel("");
+		JLabel BalanceCamp = new JLabel(""+controller.showBalance(this.getNumberAccount()));
 		BalanceCamp.setBounds(316, 135, 45, 13);
 		home.add(BalanceCamp);
 		
@@ -236,8 +226,3 @@ public class Home extends JFrame {
 		});
 	}
 }
-
-
-
-
-
