@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.JTextComponent;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -13,13 +15,44 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
-
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
+import Controller.WithdrawController;
 public class Withdraw extends JFrame {
 
 	private JPanel Withdraw;
 	private JTextField fieldAccountNumberWithdraw;
 	private JTextField fieldValueWithdraw;
 	private JPasswordField fieldPasswordWitdraw;
+	
+	
+	public JTextField getFieldValueWithdraw() {
+		return fieldValueWithdraw;
+	}
+
+	public void setFieldValueWithdraw(JTextField fieldValueWithdraw) {
+		this.fieldValueWithdraw = fieldValueWithdraw;
+	}
+	
+	public JTextField getFieldAccountNumberWithdraw() {
+		return fieldAccountNumberWithdraw;
+	}
+
+	public void setFieldAccountNumberWithdraw(JTextField fieldAccountNumberWithdraw) {
+		this.fieldAccountNumberWithdraw = fieldAccountNumberWithdraw;
+	}
+
+	public JPasswordField getFieldPasswordWitdraw() {
+		return fieldPasswordWitdraw;
+	}
+
+	public void setFieldPasswordWitdraw(JPasswordField fieldPasswordWitdraw) {
+		this.fieldPasswordWitdraw = fieldPasswordWitdraw;
+	}
+
+
+	
 
 	/**
 	 * Launch the application.
@@ -41,6 +74,7 @@ public class Withdraw extends JFrame {
 	 * Create the frame.
 	 */
 	public Withdraw() {
+		WithdrawController controller = new WithdrawController(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		Withdraw = new JPanel();
@@ -89,9 +123,21 @@ public class Withdraw extends JFrame {
 		Withdraw.add(fieldPasswordWitdraw);
 		
 		JButton buttonConfirmWitdraw = new JButton("Confirm");
+		buttonConfirmWitdraw.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					controller.makeWithdraw();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		buttonConfirmWitdraw.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		buttonConfirmWitdraw.setBounds(174, 207, 89, 23);
 		Withdraw.add(buttonConfirmWitdraw);
 	}
+
+
 
 }

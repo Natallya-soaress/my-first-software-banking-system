@@ -50,7 +50,9 @@ public class Home extends JFrame {
 		return numberAccount;
 	}
 	public void setNumberAccount(String numberAccount) {
+		
 		this.numberAccount = numberAccount;
+		//System.out.println(this.getNumberAccount());
 	}
 	/**
 	 * Launch the application.
@@ -226,3 +228,8 @@ public class Home extends JFrame {
 		});
 	}
 }
+
+
+
+
+

@@ -33,10 +33,6 @@ public class LoginController {
 		//Verificar se existe do BD
 		Connection conexao = new Conexao().getConnection();
 		AccountDB novaCon = new AccountDB(conexao);
-		
-		//novaCon.existeUser(user);
-
-        //boolean exist = novaCon.existeUser(user);
        
         if (novaCon.existeUser(user)) {
         	home = new Home();
@@ -50,7 +46,7 @@ public class LoginController {
             JOptionPane.showMessageDialog(view,"Number or Password invalid");
         }
 		
-		conexao.close();
+		//conexao.close();
 	}
 	
 

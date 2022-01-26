@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.DepositController;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -14,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class Deposit extends JFrame {
@@ -21,7 +25,34 @@ public class Deposit extends JFrame {
 	private JPanel deposit;
 	private JTextField fieldAccountNumberDeposit;
 	private JTextField fieldValueDeposit;
+	
+	
+	public JTextField getFieldAccountNumberDeposit() {
+		return fieldAccountNumberDeposit;
+	}
+
+	public void setFieldAccountNumberDeposit(JTextField fieldAccountNumberDeposit) {
+		this.fieldAccountNumberDeposit = fieldAccountNumberDeposit;
+	}
+
+	public JTextField getFieldValueDeposit() {
+		return fieldValueDeposit;
+	}
+
+	public void setFieldValueDeposit(JTextField fieldValueDeposit) {
+		this.fieldValueDeposit = fieldValueDeposit;
+	}
+
+	public JPasswordField getFieldPasswordDeposit() {
+		return fieldPasswordDeposit;
+	}
+
+	public void setFieldPasswordDeposit(JPasswordField fieldPasswordDeposit) {
+		this.fieldPasswordDeposit = fieldPasswordDeposit;
+	}
+
 	private JPasswordField fieldPasswordDeposit;
+	
 
 	/**
 	 * Launch the application.
@@ -43,6 +74,7 @@ public class Deposit extends JFrame {
 	 * Create the frame.
 	 */
 	public Deposit() {
+		DepositController controller = new DepositController(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		deposit = new JPanel();
@@ -89,6 +121,13 @@ public class Deposit extends JFrame {
 		JButton buttonConfirm = new JButton("Confirm");
 		buttonConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					controller.makeDeposit();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		buttonConfirm.setFont(new Font("Tahoma", Font.PLAIN, 12));

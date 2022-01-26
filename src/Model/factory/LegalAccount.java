@@ -98,7 +98,7 @@ public class LegalAccount implements AccountInterface {
 		} else {
 			balance -= value;
 		}
-	
+	}
 	@Override
 	public void makeWithdraw(String accountNumber, String accountPassword, double value) throws InsuficientBalanceException {
 		if(value > balance) {

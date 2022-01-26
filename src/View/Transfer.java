@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,7 +15,10 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+
+import Controller.TransferController;
 
 public class Transfer extends JFrame {
 
@@ -23,6 +27,41 @@ public class Transfer extends JFrame {
 	private JTextField fieldDestinationTransfer;
 	private JTextField fieldValueTransfer;
 	private JPasswordField fieldPasswordTransfer;
+	
+	
+	public JTextField getFieldSourceTransfer() {
+		return fieldSourceTransfer;
+	}
+
+	public void setFieldSourceTransfer(JTextField fieldSourceTransfer) {
+		this.fieldSourceTransfer = fieldSourceTransfer;
+	}
+
+	public JTextField getFieldDestinationTransfer() {
+		return fieldDestinationTransfer;
+	}
+
+	public void setFieldDestinationTransfer(JTextField fieldDestinationTransfer) {
+		this.fieldDestinationTransfer = fieldDestinationTransfer;
+	}
+
+	public JTextField getFieldValueTransfer() {
+		return fieldValueTransfer;
+	}
+
+	public void setFieldValueTransfer(JTextField fieldValueTransfer) {
+		this.fieldValueTransfer = fieldValueTransfer;
+	}
+
+	public JPasswordField getFieldPasswordTransfer() {
+		return fieldPasswordTransfer;
+	}
+
+	public void setFieldPasswordTransfer(JPasswordField fieldPasswordTransfer) {
+		this.fieldPasswordTransfer = fieldPasswordTransfer;
+	}
+
+
 
 	/**
 	 * Launch the application.
@@ -44,6 +83,7 @@ public class Transfer extends JFrame {
 	 * Create the frame.
 	 */
 	public Transfer() {
+		TransferController controller = new TransferController(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		Transfer = new JPanel();
@@ -104,6 +144,13 @@ public class Transfer extends JFrame {
 		JButton buttonConfirmTransfer = new JButton("Confirm");
 		buttonConfirmTransfer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					dispose();
+					controller.makeTransfer();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		buttonConfirmTransfer.setFont(new Font("Tahoma", Font.PLAIN, 12));

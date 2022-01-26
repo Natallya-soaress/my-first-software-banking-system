@@ -22,6 +22,10 @@ public class Account {
 		this.number = number;
 		this.accountPassword = accountPassword;
 	}
+	
+	public Account(String number) {
+		this.number = number;
+	}
 
 	public Account(String number, String accountPassword, boolean type, float balance, float loanLimit, Date creationDate,
 			Person person) {
@@ -123,6 +127,16 @@ public class Account {
 	public void makeTransfer(Account destination, double value) throws InsuficientBalanceException, NegativeDepositException {
 		makeWithdraw(value);
 		destination.makeDeposit(value);
+	}
+	
+	// Método que realiza transferências solicitando senha devido ao valor alto da transferência
+	public void makeTransfer(Account destination, double value, String accountPassword) throws InsuficientBalanceException, NegativeDepositException, IncorrectPasswordException {
+		if(accountPassword  != getAccountPassword()) {
+			throw new IncorrectPasswordException("Incorrect password!");
+		} else {
+			makeWithdraw(value);
+			destination.makeDeposit(value);
+		}
 	}
 	
 	public void generateHistory() {

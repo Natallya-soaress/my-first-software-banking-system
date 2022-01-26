@@ -98,6 +98,7 @@ public class PhysicalAccount implements AccountInterface{
 		} else {
 			balance -= value;
 		}
+	}
 	
 	@Override
 	public void makeWithdraw(String accountNumber, String accountPassword, double value) throws InsuficientBalanceException {

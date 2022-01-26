@@ -25,6 +25,16 @@ public class AccountDB {
 		
 		
 	}
+	
+	public boolean existeUserDestination(Account user) throws SQLException {
+		String sql = "select * from account where number = '"+user.getNumber()+"'";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.execute();
+		ResultSet resultSet = statement.getResultSet();
+		return resultSet.next();
+		
+		
+	}
 	public double getBalance(String numberAccount) throws SQLException{
 		
 		String sql = "select balance from account where number = '"+numberAccount+"'";
@@ -62,6 +72,40 @@ public class AccountDB {
 		
 			
 		
+	}
+
+
+
+
+	public String addValue(String value, String accountNumber) throws SQLException {
+		
+		String sql = "update account set balance = balance + '"+Double.valueOf(value).doubleValue()+"' where number = '"+accountNumber+"'";
+		PreparedStatement statement;
+		statement = connection.prepareStatement(sql);
+		statement.execute();
+		
+		ResultSet resultSet = statement.getResultSet();
+		return null;
+		
+		
+	}
+
+
+
+	public String removeValue(String value, String accountNumber) throws SQLException {
+		String sql = "update account set balance = balance - '"+Double.valueOf(value).doubleValue()+"' where number = '"+accountNumber+"'";
+		PreparedStatement statement;
+		statement = connection.prepareStatement(sql);
+		statement.execute();
+		
+		ResultSet resultSet = statement.getResultSet();
+		return null;
+		
+	}
+
+	public void transferValue(String value, String accountNumber, String destination) throws SQLException {
+		removeValue(value,accountNumber);
+		addValue(value,destination);
 	}
 	
 	
