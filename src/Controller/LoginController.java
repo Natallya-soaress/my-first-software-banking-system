@@ -41,7 +41,7 @@ public class LoginController {
         if (novaCon.existeUser(user)) {
         	home = new Home();
         	home.setNumberAccount(numberAccount);
-        	home.HomeTela();
+        	home.HomeTela(); //Dando update
         	home.setVisible(true);
         	view.setVisible(false);
         	

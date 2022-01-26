@@ -104,6 +104,13 @@ public class Home extends JFrame {
 		menuBar.add(mnAccountStatement);
 		
 		JMenuItem menuAccountStatement = new JMenuItem("Account statement");
+		menuAccountStatement.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				AccountStatement accStat = new AccountStatement();
+				accStat.setVisible(true);
+			}
+		});
 		mnAccountStatement.add(menuAccountStatement);
 		menuAccountStatement.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/invoice.png")));
 		menuAccountStatement.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -112,6 +119,13 @@ public class Home extends JFrame {
 		menuBar.add(mnMenuService);
 		
 		JMenuItem menuService = new JMenuItem("Service");
+		menuService.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Service service = new Service();
+				service.setVisible(true);
+			}
+		});
 		mnMenuService.add(menuService);
 		menuService.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/international-call.png")));
 		menuService.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -133,14 +147,35 @@ public class Home extends JFrame {
 		menuMakeNewTransaction.add(menDeposit);
 		
 		JMenuItem menWithdraw = new JMenuItem("Withdraw");
+		menWithdraw.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Withdraw withdraw = new Withdraw();
+				withdraw.setVisible(true);
+			}
+		});
 		menWithdraw.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		menuMakeNewTransaction.add(menWithdraw);
 		
 		JMenuItem menLoan = new JMenuItem("Loan");
+		menLoan.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Loan loan = new Loan();
+				loan.setVisible(true);
+			}
+		});
 		menLoan.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		menuMakeNewTransaction.add(menLoan);
 		
 		JMenuItem manTransfer = new JMenuItem("Transfer");
+		manTransfer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Transfer transfer = new Transfer();
+				transfer.setVisible(true);
+			}
+		});
 		manTransfer.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		menuMakeNewTransaction.add(manTransfer);
 		
