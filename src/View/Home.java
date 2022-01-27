@@ -40,7 +40,6 @@ import java.awt.event.ActionEvent;
 public class Home extends JFrame {
 
 	private JPanel home;
-	//private final HomeController controller;
 	private JLabel accountNumberUser;
 	private JLabel balanceUser;
 	private String numberAccount;
@@ -81,14 +80,6 @@ public class Home extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 426, 22);
 		home.add(menuBar);
-		
-		JMenu mnSettings = new JMenu("Settings");
-		menuBar.add(mnSettings);
-		
-		JMenuItem menuSettings = new JMenuItem("Settings");
-		mnSettings.add(menuSettings);
-		menuSettings.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/gear.png")));
-		menuSettings.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JMenu mnExit = new JMenu("Exit");
 		menuBar.add(mnExit);
