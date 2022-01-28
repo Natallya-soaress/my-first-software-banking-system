@@ -15,9 +15,9 @@ public class PhysicalPerson extends Person {
 		super();
 	}
 
-	public PhysicalPerson(String controlFlag, String name, Date birthDate, Adress adress, String cpf, boolean isEmployee,
+	public PhysicalPerson(String name, Date birthDate, Adress adress, PhysicalAccount physicalAccount, String cpf, boolean isEmployee,
 			String profession, float monthlyIncome) {
-		super(controlFlag, name, birthDate, adress);
+		super(name, birthDate, adress, physicalAccount);
 		this.cpf = cpf;
 		this.isEmployee = isEmployee;
 		this.profession = profession;

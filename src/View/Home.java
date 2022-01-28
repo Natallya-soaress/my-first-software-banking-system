@@ -182,22 +182,22 @@ public class Home extends JFrame {
 		
 		JLabel accountNumberUser = new JLabel("Account Number");
 		accountNumberUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		accountNumberUser.setBounds(157, 108, 132, 14);
+		accountNumberUser.setBounds(93, 109, 132, 14);
 		home.add(accountNumberUser);
 		
 		JLabel balanceUser = new JLabel("Balance");
 		balanceUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		balanceUser.setBounds(185, 133, 46, 14);
+		balanceUser.setBounds(122, 133, 46, 14);
 		home.add(balanceUser);
 		
 		
 		JLabel NumberAccCamp = new JLabel(this.getNumberAccount());
 		NumberAccCamp.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		NumberAccCamp.setBounds(316, 110, 97, 13);
+		NumberAccCamp.setBounds(245, 110, 97, 13);
 		home.add(NumberAccCamp);
 		
 		JLabel BalanceCamp = new JLabel(""+controller.showBalance(this.getNumberAccount()));
-		BalanceCamp.setBounds(316, 135, 45, 13);
+		BalanceCamp.setBounds(267, 135, 45, 13);
 		home.add(BalanceCamp);
 		
 	}

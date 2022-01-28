@@ -15,7 +15,6 @@ public class Account {
 	private float balance;
 	private float loanLimit;
 	private Date creationDate;
-	private Person person;
 	
 	
 	public Account(String number, String accountPassword) {
@@ -27,15 +26,13 @@ public class Account {
 		this.number = number;
 	}
 
-	public Account(String number, String accountPassword, boolean type, float balance, float loanLimit, Date creationDate,
-			Person person) {
+	public Account(String number, String accountPassword, boolean type, float balance, float loanLimit, Date creationDate) {
 		this.number = number;
 		this.accountPassword = accountPassword;
 		this.type = type;
 		this.balance = balance;
 		this.loanLimit = loanLimit;
 		this.creationDate = creationDate;
-		this.person = person;
 	}
 
 	public String getNumber() {
@@ -86,14 +83,6 @@ public class Account {
 		this.creationDate = creationDate;
 	}
 	
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
-
 	public String checkBalance() {
 		return "Your balance is: " + getBalance();
 	}
@@ -129,30 +118,7 @@ public class Account {
 		destination.makeDeposit(value);
 	}
 	
-	// Método que realiza transferências solicitando senha devido ao valor alto da transferência
-	public void makeTransfer(Account destination, double value, String accountPassword) throws InsuficientBalanceException, NegativeDepositException, IncorrectPasswordException {
-		if(accountPassword  != getAccountPassword()) {
-			throw new IncorrectPasswordException("Incorrect password!");
-		} else {
-			makeWithdraw(value);
-			destination.makeDeposit(value);
-		}
-	}
-	
 	public void generateHistory() {
-	}
-	
-	public String toString() {
-		return "Name: " +
-				person.getName() +
-				"\nAccount number: " +
-				getNumber() +
-				"\nAccount type: Physical" +
-				"\nBalance: " +
-				getBalance() +
-				"\nLoan limit: " +
-				getLoanLimit();
-				
 	}
 	
 }

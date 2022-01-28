@@ -6,29 +6,28 @@ import Model.entities.Adress;
 
 public abstract class Person {
 
-	private String controlFlag;
 	private String name;
 	private Date birthDate;
 	private Adress adress;
+	private PhysicalAccount physicalAccount;
+	private LegalAccount legalAccount;
 	
 	public Person() {
 		
 	}
 
-	public Person(String controlFlag, String name, Date birthDate, Adress adress) {
-		this.controlFlag = controlFlag;
+	public Person(String name, Date birthDate, Adress adress, PhysicalAccount physicalAccount) {
 		this.name = name;
 		this.birthDate = birthDate;
 		this.adress = adress;
+		this.physicalAccount = physicalAccount;
 	}
-
 	
-	public String getControlFlag() {
-		return controlFlag;
-	}
-
-	public void setControlFlag(String controlFlag) {
-		this.controlFlag = controlFlag;
+	public Person(String name, Date birthDate, Adress adress, LegalAccount legalAccount) {
+		this.name = name;
+		this.birthDate = birthDate;
+		this.adress = adress;
+		this.legalAccount = legalAccount;
 	}
 
 	public String getName() {

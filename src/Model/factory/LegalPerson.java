@@ -14,9 +14,9 @@ public class LegalPerson extends Person {
 		super();
 	}
 
-	public LegalPerson(String controlFlag, String name, Date birthDate, Adress adress, String cnpj, float billingAverage,
+	public LegalPerson(String name, Date birthDate, Adress adress, LegalAccount legalAccount, String cnpj, float billingAverage,
 			String instituitionNumber) {
-		super(controlFlag, name, birthDate, adress);
+		super(name, birthDate, adress, legalAccount);
 		this.cnpj = cnpj;
 		this.billingAverage = billingAverage;
 		this.instituitionNumber = instituitionNumber;

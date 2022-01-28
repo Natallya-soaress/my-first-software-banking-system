@@ -45,21 +45,21 @@ public class AccountStatement extends JFrame {
 		accountStatement.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(accountStatement);
 		accountStatement.setLayout(null);
-		
+
 		JLabel logoStatement = new JLabel("");
 		logoStatement.setIcon(new ImageIcon(AccountStatement.class.getResource("/ViewImages/pair-of-bills.png")));
 		logoStatement.setBounds(0, 0, 66, 32);
 		accountStatement.add(logoStatement);
-		
+
 		JLabel lblNewLabel = new JLabel("Account Statement");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNewLabel.setBounds(132, 28, 184, 14);
 		accountStatement.add(lblNewLabel);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(122, 70, 172, 146);
 		accountStatement.add(scrollPane);
-		
+
 		table = new JTable();
 		scrollPane.setViewportView(table);
 	}
