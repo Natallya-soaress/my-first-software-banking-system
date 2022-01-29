@@ -10,7 +10,7 @@ public class LegalPerson extends Person {
 	private float billingAverage;
 	private String instituitionNumber;
 	
-	public LegalPerson() {
+	public LegalPerson(String controlFlag, String name, Date birthDate, Adress adress, LegalAccount legalAccount, String cnpj2, float billingAverage2, String instituitionNumber2) {
 		super();
 	}
 

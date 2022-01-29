@@ -23,8 +23,8 @@ public class Program {
 		
 		// Teste Fábrica de pessoas
 		PersonFactory personFactory = new PersonFactory();
-		LegalPerson teste = personFactory.getLegalPerson("L", "Nat", sdf.parse("26/12/2000"), adress, "222.222.248", 600, "24" );
-		System.out.println(teste.getCnpj()); 
+		//LegalPerson teste = personFactory.getLegalPerson("L", "Nat", sdf.parse("26/12/2000"), adress, "222.222.248", 600, "24" );
+		//System.out.println(teste.getCnpj()); 
 		
 		// Teste Fábrica de contas
 		AccountFactory accountFactory = new AccountFactory();
