@@ -49,7 +49,7 @@ public class Inicio extends JFrame {
 		
 		JButton buttonLogin1 = new JButton("Login");
 		buttonLogin1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		buttonLogin1.setBackground(new Color(255, 0, 255));
+		buttonLogin1.setBackground(Color.WHITE);
 		buttonLogin1.setForeground(Color.BLACK);
 		buttonLogin1.setBounds(132, 177, 158, 23);
 		buttonLogin1.addActionListener(new ActionListener() {
@@ -65,7 +65,7 @@ public class Inicio extends JFrame {
 		
 		JLabel logoInicio = new JLabel("");
 		logoInicio.setIcon(new ImageIcon(Inicio.class.getResource("/ViewImages/pair-of-bills (2).png")));
-		logoInicio.setBounds(178, 44, 99, 64);
+		logoInicio.setBounds(175, 44, 99, 64);
 		inicio.add(logoInicio);
 		
 		JLabel titleInicio = new JLabel("My First Bank!");

@@ -78,46 +78,8 @@ public class Home extends JFrame {
 		home.setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 426, 22);
+		menuBar.setBounds(0, 0, 429, 31);
 		home.add(menuBar);
-		
-		JMenu mnExit = new JMenu("Exit");
-		menuBar.add(mnExit);
-		
-		JMenuItem menuExit = new JMenuItem("Exit");
-		mnExit.add(menuExit);
-		menuExit.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/exit.png")));
-		menuExit.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JMenu mnAccountStatement = new JMenu("AccontStatement");
-		menuBar.add(mnAccountStatement);
-		
-		JMenuItem menuAccountStatement = new JMenuItem("Account statement");
-		menuAccountStatement.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				AccountStatement accStat = new AccountStatement();
-				accStat.setVisible(true);
-			}
-		});
-		mnAccountStatement.add(menuAccountStatement);
-		menuAccountStatement.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/invoice.png")));
-		menuAccountStatement.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JMenu mnMenuService = new JMenu("MenuService");
-		menuBar.add(mnMenuService);
-		
-		JMenuItem menuService = new JMenuItem("Service");
-		menuService.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				Service service = new Service();
-				service.setVisible(true);
-			}
-		});
-		mnMenuService.add(menuService);
-		menuService.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/international-call.png")));
-		menuService.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JMenu menuMakeNewTransaction = new JMenu("Make new transaction");
 		menuBar.add(menuMakeNewTransaction);
@@ -172,9 +134,26 @@ public class Home extends JFrame {
 		manTransfer.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		menuMakeNewTransaction.add(manTransfer);
 		
+		JMenuItem menuService = new JMenuItem("Service");
+		menuBar.add(menuService);
+		menuService.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Service service = new Service();
+				service.setVisible(true);
+			}
+		});
+		menuService.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/international-call.png")));
+		menuService.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		JMenuItem menuExit = new JMenuItem("Exit");
+		menuBar.add(menuExit);
+		menuExit.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/exit.png")));
+		menuExit.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
 		JLabel titleWelcome = new JLabel("  Welcome to My First Bank!");
 		titleWelcome.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/pair-of-bills.png")));
-		titleWelcome.setBounds(120, 32, 216, 31);
+		titleWelcome.setBounds(96, 61, 216, 31);
 		titleWelcome.setForeground(Color.BLACK);
 		titleWelcome.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		home.add(titleWelcome);
@@ -182,22 +161,22 @@ public class Home extends JFrame {
 		
 		JLabel accountNumberUser = new JLabel("Account Number");
 		accountNumberUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		accountNumberUser.setBounds(93, 109, 132, 14);
+		accountNumberUser.setBounds(96, 126, 132, 14);
 		home.add(accountNumberUser);
 		
 		JLabel balanceUser = new JLabel("Balance");
 		balanceUser.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		balanceUser.setBounds(122, 133, 46, 14);
+		balanceUser.setBounds(122, 151, 46, 14);
 		home.add(balanceUser);
 		
 		
 		JLabel NumberAccCamp = new JLabel(this.getNumberAccount());
 		NumberAccCamp.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		NumberAccCamp.setBounds(245, 110, 97, 13);
+		NumberAccCamp.setBounds(245, 127, 97, 13);
 		home.add(NumberAccCamp);
 		
 		JLabel BalanceCamp = new JLabel(""+controller.showBalance(this.getNumberAccount()));
-		BalanceCamp.setBounds(267, 135, 45, 13);
+		BalanceCamp.setBounds(267, 153, 45, 13);
 		home.add(BalanceCamp);
 		
 	}

@@ -17,6 +17,10 @@ import java.awt.TextArea;
 import java.awt.Button;
 import javax.swing.JTextField;
 import java.awt.Label;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
 
 public class Service extends JFrame {
 
@@ -58,27 +62,15 @@ public class Service extends JFrame {
 		logoService.setBounds(0, 0, 56, 32);
 		Service.add(logoService);
 		
-		JMenu menuActionService = new JMenu("Desired action");
-		menuActionService.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		menuActionService.setBounds(-23, 97, 133, 26);
-		Service.add(menuActionService);
-		
-		JRadioButtonMenuItem rdbtnmntmNewRadioItem = new JRadioButtonMenuItem("Complaint");
-		rdbtnmntmNewRadioItem.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		menuActionService.add(rdbtnmntmNewRadioItem);
-		
-		JRadioButtonMenuItem rdbtnmntmNewRadioItem_1 = new JRadioButtonMenuItem("Praise");
-		rdbtnmntmNewRadioItem_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		menuActionService.add(rdbtnmntmNewRadioItem_1);
-		
-		JRadioButtonMenuItem rdbtnmntmNewRadioItem_2 = new JRadioButtonMenuItem("Query");
-		menuActionService.add(rdbtnmntmNewRadioItem_2);
-		
 		TextArea textArea = new TextArea();
 		textArea.setBounds(211, 117, 174, 94);
 		Service.add(textArea);
 		
 		buttonSend = new Button("Send");
+		buttonSend.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		buttonSend.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		buttonSend.setBounds(315, 217, 70, 22);
 		Service.add(buttonSend);
@@ -103,14 +95,30 @@ public class Service extends JFrame {
 		Service.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Action");
+		JLabel lblNewLabel_2 = new JLabel("Description");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(211, 97, 46, 14);
+		lblNewLabel_2.setBounds(211, 97, 75, 14);
 		Service.add(lblNewLabel_2);
 		
 		Label titleService = new Label("Service");
 		titleService.setFont(new Font("Tahoma", Font.BOLD, 16));
 		titleService.setBounds(51, 44, 62, 22);
 		Service.add(titleService);
+		
+		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new Home().setVisible(true);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				dispose(); 
+			}
+		});
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton.setBounds(211, 217, 89, 23);
+		Service.add(btnNewButton);
 	}
 }

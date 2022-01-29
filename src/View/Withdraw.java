@@ -135,10 +135,22 @@ public class Withdraw extends JFrame {
 			}
 		});
 		buttonConfirmWitdraw.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		buttonConfirmWitdraw.setBounds(174, 207, 89, 23);
+		buttonConfirmWitdraw.setBounds(198, 209, 89, 23);
 		Withdraw.add(buttonConfirmWitdraw);
+		
+		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new Home().setVisible(true);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				dispose(); 
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton.setBounds(83, 209, 89, 23);
+		Withdraw.add(btnNewButton);
 	}
-
-
-
 }

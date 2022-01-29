@@ -13,6 +13,9 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
 
 public class Loan extends JFrame {
 
@@ -90,8 +93,23 @@ public class Loan extends JFrame {
 		
 		JButton buttonConfirmLoan = new JButton("Confirm");
 		buttonConfirmLoan.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		buttonConfirmLoan.setBounds(181, 213, 89, 23);
+		buttonConfirmLoan.setBounds(215, 215, 89, 23);
 		Loan.add(buttonConfirmLoan);
+		
+		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new Home().setVisible(true);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				dispose(); 
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton.setBounds(102, 216, 89, 23);
+		Loan.add(btnNewButton);
 	}
 
 }

@@ -1,24 +1,22 @@
 package View;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import Controller.DepositController;
-
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JPasswordField;
-import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.awt.event.ActionEvent;
 
 public class Deposit extends JFrame {
 
@@ -131,12 +129,26 @@ public class Deposit extends JFrame {
 			}
 		});
 		buttonConfirm.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		buttonConfirm.setBounds(169, 209, 89, 23);
+		buttonConfirm.setBounds(220, 209, 89, 23);
 		deposit.add(buttonConfirm);
 		
 		fieldPasswordDeposit = new JPasswordField();
-		fieldPasswordDeposit.setBounds(128, 167, 130, 20);
+		fieldPasswordDeposit.setBounds(125, 167, 133, 20);
 		deposit.add(fieldPasswordDeposit);
+		
+		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new Home().setVisible(true);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				dispose(); 
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton.setBounds(92, 210, 89, 23);
+		deposit.add(btnNewButton);
 	}
-
 }

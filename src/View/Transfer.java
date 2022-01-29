@@ -154,8 +154,24 @@ public class Transfer extends JFrame {
 			}
 		});
 		buttonConfirmTransfer.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		buttonConfirmTransfer.setBounds(249, 206, 89, 23);
+		buttonConfirmTransfer.setBounds(227, 206, 89, 23);
 		Transfer.add(buttonConfirmTransfer);
+		
+		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new Home().setVisible(true);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				dispose(); 
+
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton.setBounds(96, 206, 89, 23);
+		Transfer.add(btnNewButton);
 	}
 
 }

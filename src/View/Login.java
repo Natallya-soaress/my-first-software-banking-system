@@ -93,7 +93,7 @@ public class Login extends JFrame {
 				//dispose();
 			}
 		});
-		buttonLogin2.setBackground(new Color(255, 0, 255));
+		buttonLogin2.setBackground(Color.WHITE);
 		buttonLogin2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		buttonLogin2.setBounds(190, 199, 89, 23);
 		login.add(buttonLogin2);
