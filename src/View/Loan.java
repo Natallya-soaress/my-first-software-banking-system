@@ -27,18 +27,6 @@ public class Loan extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Loan frame = new Loan();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -99,11 +87,6 @@ public class Loan extends JFrame {
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					new Home().setVisible(true);
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
 				dispose(); 
 			}
 		});

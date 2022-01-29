@@ -5,7 +5,7 @@ import java.util.Date;
 import Model.exceptions.IncorrectPasswordException;
 import Model.exceptions.InsuficientBalanceException;
 import Model.exceptions.LoanOverTheLimitException;
-import Model.exceptions.NegativeDepositException;
+import Model.exceptions.NegativeValueException;
 
 public class Account {
 
@@ -87,9 +87,9 @@ public class Account {
 		return "Your balance is: " + getBalance();
 	}
 	
-	public void makeDeposit(double value) throws NegativeDepositException {
+	public void makeDeposit(double value) throws NegativeValueException {
 		if (value <= 0) {
-			throw new NegativeDepositException("It is not possible to deposit negative amounts!");
+			throw new NegativeValueException("It is not possible to deposit negative amounts!");
 		}else {
 		balance += value;
 		}
@@ -104,7 +104,7 @@ public class Account {
 	}
 	
 	
-	public void makeLoan(double value) throws NegativeDepositException, LoanOverTheLimitException {
+	public void makeLoan(double value) throws NegativeValueException, LoanOverTheLimitException {
 		if(value > loanLimit) {
 			throw new LoanOverTheLimitException("Loan above the allowed limit!");
 		} else {
@@ -113,7 +113,7 @@ public class Account {
 		
 	}
 	
-	public void makeTransfer(Account destination, double value) throws InsuficientBalanceException, NegativeDepositException {
+	public void makeTransfer(Account destination, double value) throws InsuficientBalanceException, NegativeValueException {
 		makeWithdraw(value);
 		destination.makeDeposit(value);
 	}

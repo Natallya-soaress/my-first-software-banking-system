@@ -10,6 +10,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JRadioButtonMenuItem;
 import java.awt.Font;
@@ -32,18 +33,6 @@ public class Service extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Service frame = new Service();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -69,6 +58,8 @@ public class Service extends JFrame {
 		buttonSend = new Button("Send");
 		buttonSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(buttonSend,"Message sent successfully ");
+				dispose();
 			}
 		});
 		buttonSend.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -108,11 +99,6 @@ public class Service extends JFrame {
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					new Home().setVisible(true);
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
 				dispose(); 
 			}
 		});

@@ -3,6 +3,7 @@ package View;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -17,6 +18,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import Controller.DepositController;
+import Model.exceptions.IncorrectPasswordException;
+import Model.exceptions.InsuficientBalanceException;
+import Model.exceptions.NegativeValueException;
 
 public class Deposit extends JFrame {
 
@@ -55,18 +59,7 @@ public class Deposit extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Deposit frame = new Deposit();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
@@ -121,7 +114,7 @@ public class Deposit extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					controller.makeDeposit();
-				} catch (SQLException e1) {
+				} catch (SQLException | HeadlessException | IncorrectPasswordException | NegativeValueException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -139,16 +132,16 @@ public class Deposit extends JFrame {
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					new Home().setVisible(true);
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-				dispose(); 
+				dispose();
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnNewButton.setBounds(92, 210, 89, 23);
 		deposit.add(btnNewButton);
+	}
+
+	protected void HomeTela() {
+		// TODO Auto-generated method stub
+		
 	}
 }

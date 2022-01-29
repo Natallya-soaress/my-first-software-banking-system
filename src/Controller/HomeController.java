@@ -14,6 +14,7 @@ public class HomeController {
 		this.view = view;
 	}
 
+
 	public String showNumber(String passwordAccount) throws SQLException{
 		Connection conexao = new Conexao().getConnection();
 		AccountDB novaCon = new AccountDB(conexao);

@@ -19,6 +19,10 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import Controller.WithdrawController;
+import Model.exceptions.IncorrectPasswordException;
+import Model.exceptions.InsuficientBalanceException;
+import Model.exceptions.NegativeValueException;
+import Model.exceptions.NoNumberException;
 
 public class Withdraw extends JFrame {
 
@@ -26,6 +30,7 @@ public class Withdraw extends JFrame {
 	private JTextField fieldAccountNumberWithdraw;
 	private JTextField fieldValueWithdraw;
 	private JPasswordField fieldPasswordWitdraw;
+	private Home home;
 	
 	
 	public JTextField getFieldValueWithdraw() {
@@ -58,24 +63,13 @@ public class Withdraw extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Withdraw frame = new Withdraw();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
 	public Withdraw() {
-		WithdrawController controller = new WithdrawController(this);
+		WithdrawController controller = new WithdrawController(this,home);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		Withdraw = new JPanel();
@@ -131,6 +125,18 @@ public class Withdraw extends JFrame {
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch (NegativeValueException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IncorrectPasswordException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (NoNumberException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (InsuficientBalanceException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -141,11 +147,6 @@ public class Withdraw extends JFrame {
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					new Home().setVisible(true);
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
 				dispose(); 
 			}
 		});
@@ -153,4 +154,6 @@ public class Withdraw extends JFrame {
 		btnNewButton.setBounds(83, 209, 89, 23);
 		Withdraw.add(btnNewButton);
 	}
+
+
 }

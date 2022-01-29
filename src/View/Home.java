@@ -30,6 +30,8 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JTree;
@@ -42,16 +44,22 @@ public class Home extends JFrame {
 	private JPanel home;
 	private JLabel accountNumberUser;
 	private JLabel balanceUser;
-	private String numberAccount;
+	private static String numberAccount;
+	private static Double balance;
 	
 	
-	public String getNumberAccount() {
+	public static Double getBalance() {
+		return balance;
+	}
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+	public static String getNumberAccount() {
 		return numberAccount;
 	}
-	public void setNumberAccount(String numberAccount) {
-		
+	public void setNumberAccount(String numberAccount) {		
 		this.numberAccount = numberAccount;
-		//System.out.println(this.getNumberAccount());
+
 	}
 	/**
 	 * Launch the application.
@@ -90,10 +98,8 @@ public class Home extends JFrame {
 		menDeposit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				dispose();
 				Deposit deposit = new Deposit();
 				deposit.setVisible(true);
-				
 			}
 		});
 		menDeposit.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -103,7 +109,7 @@ public class Home extends JFrame {
 		menWithdraw.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				dispose();
+				
 				Withdraw withdraw = new Withdraw();
 				withdraw.setVisible(true);
 			}
@@ -117,6 +123,7 @@ public class Home extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Loan loan = new Loan();
 				loan.setVisible(true);
+				
 			}
 		});
 		menLoan.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -126,7 +133,6 @@ public class Home extends JFrame {
 		manTransfer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				dispose();
 				Transfer transfer = new Transfer();
 				transfer.setVisible(true);
 			}
@@ -139,6 +145,7 @@ public class Home extends JFrame {
 		menuService.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				
 				Service service = new Service();
 				service.setVisible(true);
 			}
@@ -147,6 +154,14 @@ public class Home extends JFrame {
 		menuService.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JMenuItem menuExit = new JMenuItem("Exit");
+		menuExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				dispose();
+				Inicio inicio = new  Inicio();
+				inicio.setVisible(true);
+			}
+		});
 		menuBar.add(menuExit);
 		menuExit.setIcon(new ImageIcon(Home.class.getResource("/ViewImages/exit.png")));
 		menuExit.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -178,6 +193,8 @@ public class Home extends JFrame {
 		JLabel BalanceCamp = new JLabel(""+controller.showBalance(this.getNumberAccount()));
 		BalanceCamp.setBounds(267, 153, 45, 13);
 		home.add(BalanceCamp);
+		this.setBalance(controller.showBalance(this.getNumberAccount()));
+		
 		
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {

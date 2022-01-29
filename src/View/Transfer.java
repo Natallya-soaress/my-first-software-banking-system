@@ -19,6 +19,10 @@ import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 import Controller.TransferController;
+import Model.exceptions.IncorrectPasswordException;
+import Model.exceptions.InsuficientBalanceException;
+import Model.exceptions.NegativeValueException;
+import Model.exceptions.NoNumberException;
 
 public class Transfer extends JFrame {
 
@@ -66,18 +70,7 @@ public class Transfer extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Transfer frame = new Transfer();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
@@ -145,9 +138,21 @@ public class Transfer extends JFrame {
 		buttonConfirmTransfer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					dispose();
+					
 					controller.makeTransfer();
 				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IncorrectPasswordException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (InsuficientBalanceException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (NegativeValueException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (NoNumberException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -160,11 +165,6 @@ public class Transfer extends JFrame {
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					new Home().setVisible(true);
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
 				dispose(); 
 
 			}
