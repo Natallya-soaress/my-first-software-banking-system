@@ -1,21 +1,23 @@
-package Model.entities;
+package Model.factory;
 
 import java.util.Date;
+
+import Model.entities.Adress;
 
 public class PhysicalPerson extends Person {
 	
 	private String cpf;
 	private boolean isEmployee;
 	private String profession;
-	private double monthlyIncome;  //Renda mensal
+	private float monthlyIncome;
 	
 	public PhysicalPerson() {
 		super();
 	}
 
-	public PhysicalPerson(String name, Date birthDate, Address address, String cpf, boolean isEmployee, String profession,
-			double monthlyIncome) {
-		super(name, birthDate, address);
+	public PhysicalPerson(String name, Date birthDate, Adress adress, PhysicalAccount physicalAccount, String cpf, boolean isEmployee,
+			String profession, float monthlyIncome) {
+		super(name, birthDate, adress, physicalAccount);
 		this.cpf = cpf;
 		this.isEmployee = isEmployee;
 		this.profession = profession;
@@ -50,7 +52,7 @@ public class PhysicalPerson extends Person {
 		return monthlyIncome;
 	}
 
-	public void setMonthlyIncome(double monthlyIncome) {
+	public void setMonthlyIncome(float monthlyIncome) {
 		this.monthlyIncome = monthlyIncome;
 	}
 	

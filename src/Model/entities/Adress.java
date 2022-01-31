@@ -1,27 +1,25 @@
 package Model.entities;
 
-public class Address {
+public class Adress {
 	
 	private String street;
 	private String complement;
-	private int number;
+	private String number;
 	private String district;
 	private String city;
 	private String country;
 	
-	public Address() {
+	public Adress() {
 		
 	}
 
-	public Address(String street, String complement, int number, String district, String city, String country) {
-		
-			this.street = street;
-			this.complement = complement;
-			this.number = number;
-			this.district = district;
-			this.city = city;
-			this.country = country;
-			
+	public Adress(String street, String complement, String number, String district, String city, String country) {
+		this.street = street;
+		this.complement = complement;
+		this.number = number;
+		this.district = district;
+		this.city = city;
+		this.country = country;
 	}
 
 	public String getStreet() {
@@ -40,11 +38,11 @@ public class Address {
 		this.complement = complement;
 	}
 
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 

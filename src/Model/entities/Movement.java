@@ -4,35 +4,35 @@ import java.util.Date;
 
 public class Movement {
 
-	private int source;   //movimento de uma conta para a sua de destino
-	private int destination;
-	private double value;
+	private String source;
+	private String destination;
+	private float value;
 	private Date date;
 	
 	public Movement() {
 		
 	}
 	
-	public Movement(int source, int destination, double value, Date date) {
+	public Movement(String source, String destination, float value, Date date) {
 		this.source = source;
 		this.destination = destination;
 		this.value = value;
 		this.date = date;
 	}
 
-	public int getSource() {
+	public String getSource() {
 		return source;
 	}
 
-	public void setSource(int source) {
+	public void setSource(String source) {
 		this.source = source;
 	}
 
-	public int getDestination() {
+	public String getDestination() {
 		return destination;
 	}
 
-	public void setDestination(int destination) {
+	public void setDestination(String destination) {
 		this.destination = destination;
 	}
 
@@ -40,7 +40,7 @@ public class Movement {
 		return value;
 	}
 
-	public void setValue(double value) {
+	public void setValue(float value) {
 		this.value = value;
 	}
 
