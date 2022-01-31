@@ -39,7 +39,7 @@ public class DepositController {
 			String password = view.getFieldPasswordDeposit().getText();
 			
 			
-			//Double number = Double.valueOf(value).doubleValue();
+			Double number = Double.valueOf(value).doubleValue();
 			if(!(accountNumber.equals(home.getNumberAccount()))) {
 				throw new IncorrectAccountException("The user is not the login user");
 			}
@@ -77,6 +77,8 @@ public class DepositController {
 			JOptionPane.showMessageDialog(view,e.getMessage());
 		}catch(IncorrectAccountException e) {
 			JOptionPane.showMessageDialog(view,e.getMessage());
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(view,"The value has be a number");
 		}
 		
 		
